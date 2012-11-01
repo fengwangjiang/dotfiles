@@ -1,0 +1,18 @@
+#!/bin/sh
+
+SRC=/home/bana
+DEST=/media/knight-backup
+USER=bana
+SERVER=knight-backup
+DIRNAME=bana-desktop-home
+
+rsync -azP \
+  --delete \
+  --delete-excluded \
+  --include-from=$SRC/backup-home-includes \
+  --exclude-from=$SRC/backup-home-excludes \
+  --stats \
+  $SRC/ $USER@$SERVER:$DEST/$DIRNAME
+
+ssh $USER@$SERVER "touch $DEST/$DIRNAME && \
+    chmod 755 -R $DEST/$DIRNAME"

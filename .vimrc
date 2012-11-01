@@ -1,0 +1,183 @@
+set nocompatible
+set encoding=utf-8
+
+call pathogen#infect()
+call pathogen#helptags()
+
+filetype plugin indent on
+
+map Q gq
+set mouse=a
+
+syntax on
+
+map <C-j> 5j
+map <C-k> 5k
+
+" Linux filesystem
+set directory=$HOME/.vim/backup/,~/.tmp,~/tmp,/tmp
+set backupdir=$HOME/.vim/backup/,~/.tmp,~/tmp,/tmp
+
+set history=1000
+set undolevels=1000
+set noerrorbells
+set pastetoggle=<F2>
+
+set showcmd
+
+
+set cmdheight=2
+set number
+
+" , #python # comments
+" map ,# :s/^/#/<CR>
+" map .# :s/^#//<CR>
+
+set background=dark   " adapt colors for background
+set selectmode=key
+
+" Begin Jason Knight copying from stevelosh.com 'coming home to vim'
+
+set t_Co=256
+"colorscheme darkburn
+"colorscheme molokai
+
+"set modelines
+
+set encoding=utf-8
+set autoindent
+set showmode
+set showcmd
+set hidden
+
+set wildmenu
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,*.hi
+
+set ttyfast
+set ruler
+set backspace=indent,eol,start
+set laststatus=2
+
+let mapleader = ","
+
+nnoremap / /\v
+vnoremap / /\v
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set showmatch
+set hlsearch
+nnoremap <leader><space> :noh<cr>
+nnoremap <tab> %
+vnoremap <tab> %
+
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal fo+=awt
+au BufRead,BufNewFile *.txt setlocal fo+=awt
+au BufRead,BufNewFile *.{hsc,ghci,lhs} setlocal filetype=haskell
+au BufRead,BufNewFile *.{pyx,pxd} setlocal filetype=python
+
+au FileType rst,markdown setlocal comments=nb:*,n:-,n:*,n:+
+au FileType rst,markdown set formatoptions+=tqnaw
+au FileType rst,markdown set formatlistpat=^\\s*\\(\\d\\+\\\|[a-z]\\)[\\].)]\\s*
+
+
+" make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
+au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set scrolloff=3
+
+set wrap 
+set textwidth=79 
+
+set formatoptions=qrco
+setlocal comments+=n:*,n:#
+
+"au!
+au Filetype tex setlocal fo+=awt
+au Filetype cabal setlocal fo+=awt
+au FileType make set noexpandtab
+
+cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
+
+map <F5> :call CompileLatex()<CR>
+
+func! CompileLatex()
+  exec "w" 
+  exec "lcd %:p:h"
+  exec "!latbib %:t "
+  exec "i" 
+endfunc
+
+
+" Here, add a t to format options if we want to " auto insert linebreaks after
+" 79 characters
+
+" Shortcut to rapidly toggle `set list`
+" nmap <leader>i :set list!<CR>
+" set listchars=eol:¬,tab:▸\ 
+
+"Invisible character colors
+" highlight NonText guifg=#4a4a59
+" highlight SpecialKey guifg=#4a4a59
+" highlight LineNr guifg=grey
+" highlight NonText ctermfg=grey
+" highlight SpecialKey ctermfg=grey
+" highlight LineNr ctermfg=grey
+
+
+"nnoremap <up> <nop>
+"nnoremap <down> <nop>
+"nnoremap <left> <nop>
+"nnoremap <right> <nop>
+"inoremap <up> <nop>
+"inoremap <down> <nop>
+"inoremap <left> <nop>
+"inoremap <right> <nop>
+
+:map <F3> :w !detex \| wc -w<CR>
+
+nnoremap j gj
+nnoremap k gk
+
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+nnoremap ; :
+
+au FocusLost * :wa
+
+nnoremap <leader>v V`]
+
+nnoremap <leader>ev :tabe $MYVIMRC<cr>
+nnoremap <leader>sv :so $HOME/.vimrc<cr>
+
+inoremap jb <ESC>
+inoremap ,. <ESC>  
+vnoremap ,. <ESC>  
+" nnoremap <leader>w <C-w>v<C-w>l
+
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
+
+nnoremap <leader>h gT
+nnoremap <leader>l gt
+
+" More of Jason's stuff below VVVV
+
+nmap <Space> i_<Esc>r
+map <leader>e :e <C-R>=expand("%:h")<cr>/
+map <leader>w :w <C-R>=expand("%:h")<cr>/
+map <leader>sa :sav <C-R>=expand("%:h")<cr>/
+map <leader>te :tabe <C-R>=expand("%:h")<cr>/
+map <leader>tn :tabnew <C-R>=expand("%:h")<cr>/
+map <leader>tt :tabnew <cr>
+
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>

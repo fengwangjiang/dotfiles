@@ -1,0 +1,15 @@
+#!/bin/sh
+
+SRC=/back/$1
+DEST=/media/knight-backup
+USER=bana
+SERVER=knight-backup
+DIRNAME=$1
+
+rsync -azHP \
+  --size-only \
+  --stats \
+  $SRC/ $USER@$SERVER:$DEST/$DIRNAME
+
+ssh $USER@$SERVER "touch $DEST/$DIRNAME && \
+    chmod 755 -R $DEST/$DIRNAME"

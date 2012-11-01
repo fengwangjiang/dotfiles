@@ -1,0 +1,9 @@
+#!/bin/sh
+
+backup-home
+backup-whale
+backup-single Home_Vids
+backup-single ISOs
+backup-single Pictures
+backup-single Music
+backup-single Movies

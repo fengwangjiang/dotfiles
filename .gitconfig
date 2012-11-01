@@ -1,0 +1,34 @@
+; user identity
+[user]
+  name = "Jason Knight"
+  email = "Jason@JasonKnight.us"
+
+[color]
+	status = auto
+	diff = auto
+	interactive = auto
+	branch = auto
+
+[alias]
+	st = status
+	co = checkout
+	ci = commit
+	cdiff = diff --cached
+	lg = log --graph --decorate --branches --abbrev-commit
+
+#[log]
+#	graph = yes
+#	decorate = yes
+#	pretty = short
+#	date = local
+#	branches = yes
+#	abbrev-commit
+
+[format]
+	#pretty = short
+
+[log]
+	date = local
+
+[core]
+	excludesfile = /home/bana/.gitignore_global

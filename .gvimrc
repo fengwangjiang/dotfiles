@@ -1,0 +1,1 @@
+/home/bana/.vim/gvimrc

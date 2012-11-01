@@ -1,0 +1,19 @@
+#!/bin/sh
+
+SRC=/back
+DEST=/media/knight-backup
+USER=bana
+SERVER=knight-backup
+DIRNAME=bana-desktop-whale
+
+rsync -rlzHP \
+  --size-only \
+  --delete \
+  --delete-excluded \
+  --exclude-from=$SRC/backup_exclude.txt \
+  --stats \
+  $SRC/ $USER@$SERVER:$DEST/$DIRNAME 
+  
+ssh $USER@$SERVER "touch $DEST/$DIRNAME && \
+    chmod 755 -R $DEST/$DIRNAME"
+
