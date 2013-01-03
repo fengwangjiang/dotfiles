@@ -1,0 +1,6 @@
+[submodule "home/.zprezto"]
+	path = home/.zprezto
+	url = git://github.com/sorin-ionescu/prezto.git
+[submodule "home/.vim/bundle/vim-indent-guides"]
+	path = home/.vim/bundle/vim-indent-guides
+	url = git://github.com/nathanaelkane/vim-indent-guides.git
