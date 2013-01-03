@@ -1,2 +1,3 @@
-unison
-
+home/.unison
+home/.ssh/*
+!home/.ssh/config
