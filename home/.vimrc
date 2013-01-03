@@ -42,6 +42,14 @@ set t_Co=256
 "colorscheme darkburn
 "colorscheme molokai
 
+" Vim indent guides
+"let g:indent_guides_start_level=2
+"let g:indent_guides_start_size=1
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+
+
 "set modelines
 
 set encoding=utf-8
