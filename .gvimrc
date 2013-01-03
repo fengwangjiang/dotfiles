@@ -1,1 +1,1 @@
-/home/bana/.vim/gvimrc
+.vim/gvimrc
