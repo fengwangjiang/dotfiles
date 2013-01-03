@@ -1,0 +1,17 @@
+vim-gnome
+aptitude
+ghc
+git
+mercurial
+nautilus-dropbox
+s3ql
+indicator-multiload
+indicator-weather
+compizconfig-settings-manager
+tmux
+build-essential
+gfortran
+openssh-server
+inkscape
+gimp
+zsh

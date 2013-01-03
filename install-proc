@@ -1,0 +1,21 @@
+
+# S3QL
+sudo mkdir /mnt/gs
+sudo chown bana /mnt/gs
+sudo chgrp bana /mnt/gs
+# cp ~/.s3ql/authinfo2 from somewhere
+# cp ~/.unison/gsp.prf from somewhere
+# try to cp ~/bin/unison from somewhere
+
+mount.s3ql gs://jknight-s3-test /mnt/gs
+
+# get as much of GSP locally as you can (avoid pulling the whole data set)
+# then:
+
+rsync -avP --delete --size-only /mnt/gs ~/GSP/
+
+unison -fastercheckUNSAFE /mnt/gs/ ~/GSP/
+unison gsp
+
+umount.s3ql /mnt/gs
+sync
