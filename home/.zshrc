@@ -33,8 +33,8 @@ alias ooo='lll'
 alias -g L='--color=always | less -r'
 
 alias as='apt-cache search'
-alias au='apt-get update && apt-get upgrade'
-alias ai='apt-get install'
+alias au='sudo apt-get update && sudo apt-get upgrade'
+alias ai='sudo apt-get install'
 
 alias essh='vim ~/.ssh/config'
 alias ez='vim ~/.zshrc'
