@@ -1,19 +1,22 @@
 #!/bin/bash -ex
-
 # inspired from https://gist.github.com/2913223
-#
-# sudo apt-get update && sudo apt-get upgrade
-# cat install-list | sudo dpkg --set-selections
-# sudo apt-get install
-#
-# chsh --shell /bin/zsh
-#
+
+# On a brand new system, the first step is to update and then
+# acquire git and curl
+sudo apt-get update && sudo apt-get upgrade
+sudo apt-get install git curl
+
 # curl -s https://raw.github.com/andsens/homeshick/master/install.sh | bash
 # $HOME/.homeshick clone git@github.com:binarybana/dotfiles.git
 # $HOME/.homeshick symlink dotfiles
 #
-# Now I need to get the rest of the files from:
-# bin .s3ql .unison .ssh GSP Dropbox
+cat $HOME/.homesick/repos/dotfiles/pkg-list | sudo dpkg --set-selections
+sudo apt-get install
+
+chsh --shell /bin/zsh
+
+echo "Now I need to get the rest of the files from:"
+echo "bin .s3ql .unison .ssh GSP Dropbox"
 
 # S3QL
 sudo mkdir /mnt/gs
@@ -23,15 +26,15 @@ sudo chgrp bana /mnt/gs
 # cp ~/.unison/gsp.prf from somewhere
 # try to cp ~/bin/unison from somewhere
 
-mount.s3ql gs://jknight-s3-test /mnt/gs
+#mount.s3ql gs://jknight-s3-test /mnt/gs
 
 # get as much of GSP locally as you can (avoid pulling the whole data set)
 # then:
 
-rsync -avP --delete --size-only /mnt/gs ~/GSP/
+#rsync -avP --delete --size-only /mnt/gs ~/GSP/
 
-unison -fastercheckUNSAFE /mnt/gs/ ~/GSP/
-unison gsp
+#unison -fastercheckUNSAFE /mnt/gs/ ~/GSP/
+#unison gsp
 
-umount.s3ql /mnt/gs
-sync
+#umount.s3ql /mnt/gs
+#sync

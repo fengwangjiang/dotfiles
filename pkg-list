@@ -1,7 +1,6 @@
-vim-gnome
-aptitude
-ghc
 git
+curl
+vim-gnome
 mercurial
 nautilus-dropbox
 s3ql
@@ -15,3 +14,7 @@ openssh-server
 inkscape
 gimp
 zsh
+python-numpy
+python-scipy
+ipython
+cython
