@@ -57,3 +57,5 @@ function ext_glob {
     $==command $==~*      # redo globbing on arguments
 }
 alias extglob='noglob ext_glob '  # delay globbing until inside
+
+export PATH=$HOME/bin:$PATH
