@@ -32,6 +32,7 @@ alias ooo='lll'
 
 alias -g L='--color=always | less -r'
 
+alias bc='bc -l'
 alias as='apt-cache search'
 alias au='sudo apt-get update && sudo apt-get upgrade'
 alias ai='sudo apt-get install'
