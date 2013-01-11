@@ -32,5 +32,3 @@
 
 [core]
 	excludesfile = /home/bana/.gitignore_global
-[push]
-	default = simple
