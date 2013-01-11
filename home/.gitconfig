@@ -2,6 +2,7 @@
 [user]
   name = "Jason Knight"
   email = "Jason@JasonKnight.us"
+  editor = "vim"
 
 [color]
 	status = auto

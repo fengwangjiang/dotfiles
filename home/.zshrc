@@ -11,12 +11,12 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+zstyle ':completion:*' accept-exact-dirs 'yes'
 
 autoload -Uz promptinit
 promptinit
 prompt steeef
 
-namedir () { $1=$PWD ;  : ~$1 }
 bindkey -v
 
 bindkey '\e.' insert-last-word
