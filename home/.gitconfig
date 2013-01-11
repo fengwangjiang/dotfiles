@@ -2,7 +2,6 @@
 [user]
   name = "Jason Knight"
   email = "Jason@JasonKnight.us"
-  editor = "vim"
 
 [color]
 	status = auto
@@ -17,19 +16,9 @@
 	cdiff = diff --cached
 	lg = log --graph --decorate --branches --abbrev-commit
 
-#[log]
-#	graph = yes
-#	decorate = yes
-#	pretty = short
-#	date = local
-#	branches = yes
-#	abbrev-commit
-
-[format]
-	#pretty = short
-
 [log]
 	date = local
 
 [core]
 	excludesfile = /home/bana/.gitignore_global
+	editor = vim
