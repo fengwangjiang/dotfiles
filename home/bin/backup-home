@@ -1,18 +1,19 @@
 #!/bin/sh
 
+set -o errexit 
+
 SRC=/home/bana
-DEST=/media/knight-backup
-USER=bana
-SERVER=knight-backup
+DEST=/mnt/knight-backup
+USER=pi
+SERVER=raspberrypi
 DIRNAME=bana-desktop-home
 
-rsync -azP \
+rsync -azhP \
   --delete \
-  --delete-excluded \
-  --include-from=$SRC/backup-home-includes \
-  --exclude-from=$SRC/backup-home-excludes \
   --stats \
-  $SRC/ $USER@$SERVER:$DEST/$DIRNAME
+  $SRC/GSP \
+  $SRC/Dropbox \
+  $USER@$SERVER:$DEST/$DIRNAME/
 
 ssh $USER@$SERVER "touch $DEST/$DIRNAME && \
     chmod 755 -R $DEST/$DIRNAME"

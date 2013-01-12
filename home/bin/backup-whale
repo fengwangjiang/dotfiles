@@ -1,9 +1,9 @@
 #!/bin/sh
 
-SRC=/back
-DEST=/media/knight-backup
-USER=bana
-SERVER=knight-backup
+SRC=/media/bana/Pookie
+DEST=/mnt/knight-backup
+USER=pi
+SERVER=raspberrypi
 DIRNAME=bana-desktop-whale
 
 rsync -rlzHP \
@@ -12,7 +12,7 @@ rsync -rlzHP \
   --delete-excluded \
   --exclude-from=$SRC/backup_exclude.txt \
   --stats \
-  $SRC/ $USER@$SERVER:$DEST/$DIRNAME 
+  $SRC $USER@$SERVER:$DEST/$DIRNAME 
   
 ssh $USER@$SERVER "touch $DEST/$DIRNAME && \
     chmod 755 -R $DEST/$DIRNAME"
