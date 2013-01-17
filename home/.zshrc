@@ -24,6 +24,7 @@ alias la='ls -al'
 alias l='ls'
 alias ll='ls -lh'
 alias lll=longlist
+alias waf='./waf'
 
 alias oa='la'
 alias o='l'
