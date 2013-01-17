@@ -7,7 +7,7 @@ URxvt.scrollBar_right:	  true
 URxvt.saveLines:        8192
 URxvt.meta:             ignore
 
-URxvt.perl-ext-common : default,matcher,font-size
+URxvt.perl-ext-common : default,matcher,font-size,tabbed_new
 URxvt.urlLauncher     : google-chrome
 URxvt.matcher.button  : 1
 
