@@ -4,12 +4,14 @@ set encoding=utf-8
 call pathogen#infect()
 call pathogen#helptags()
 
-filetype plugin indent on
+if has('autocmd')
+  filetype plugin indent on
+endif
+
+syntax enable
 
 map Q gq
 set mouse=a
-
-syntax on
 
 map <C-j> 5j
 map <C-k> 5k
@@ -24,20 +26,13 @@ set noerrorbells
 set pastetoggle=<F2>
 
 set showcmd
-
-
 set cmdheight=2
 set number
-
-" , #python # comments
-" map ,# :s/^/#/<CR>
-" map .# :s/^#//<CR>
 
 set background=dark   " adapt colors for background
 set selectmode=key
 
 " Begin Jason Knight copying from stevelosh.com 'coming home to vim'
-
 set t_Co=256
 "colorscheme darkburn
 "colorscheme molokai
@@ -45,17 +40,14 @@ set t_Co=256
 " Vim indent guides
 "let g:indent_guides_start_level=2
 "let g:indent_guides_start_size=1
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
-
+"let g:indent_guides_auto_colors = 0
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 
 "set modelines
-
 set encoding=utf-8
 set autoindent
 set showmode
-set showcmd
 set hidden
 
 set wildmenu
@@ -81,18 +73,10 @@ nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
 
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal fo+=awt
-au BufRead,BufNewFile *.txt setlocal fo+=awt
-au BufRead,BufNewFile *.{hsc,ghci,lhs} setlocal filetype=haskell
-au BufRead,BufNewFile *.{pyx,pxd} setlocal filetype=python
+set smarttab
+set shiftround
+set nrformats-=octal
 
-au FileType rst,markdown setlocal comments=nb:*,n:-,n:*,n:+
-au FileType rst,markdown set formatoptions+=tqnaw
-au FileType rst,markdown set formatlistpat=^\\s*\\(\\d\\+\\\|[a-z]\\)[\\].)]\\s*
-
-
-" make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
-au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -105,7 +89,20 @@ set textwidth=79
 set formatoptions=qrco
 setlocal comments+=n:*,n:#
 
-"au!
+autocmd!	
+"Remove ALL autocommands for the current group.
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal fo+=awt
+au BufRead,BufNewFile *.txt setlocal fo+=awt
+au BufRead,BufNewFile *.{hsc,ghci,lhs} setlocal filetype=haskell
+au BufRead,BufNewFile *.{pyx,pxd} setlocal filetype=python
+
+au FileType rst setlocal comments=nb:*,n:-,n:*,n:+
+au FileType rst set formatoptions+=tqnaw
+au FileType rst set formatlistpat=^\\s*\\(\\d\\+\\\|[a-z]\\)[\\].)]\\s*
+
+" make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
+au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+
 au Filetype tex setlocal fo+=awt
 au Filetype cabal setlocal fo+=awt
 au FileType make set noexpandtab
@@ -113,14 +110,12 @@ au FileType make set noexpandtab
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 map <F5> :call CompileLatex()<CR>
-
 func! CompileLatex()
   exec "w" 
   exec "lcd %:p:h"
   exec "!latbib %:t "
   exec "i" 
 endfunc
-
 
 " Here, add a t to format options if we want to " auto insert linebreaks after
 " 79 characters
@@ -136,16 +131,6 @@ endfunc
 " highlight NonText ctermfg=grey
 " highlight SpecialKey ctermfg=grey
 " highlight LineNr ctermfg=grey
-
-
-"nnoremap <up> <nop>
-"nnoremap <down> <nop>
-"nnoremap <left> <nop>
-"nnoremap <right> <nop>
-"inoremap <up> <nop>
-"inoremap <down> <nop>
-"inoremap <left> <nop>
-"inoremap <right> <nop>
 
 :map <F3> :w !detex \| wc -w<CR>
 
@@ -189,3 +174,12 @@ map <leader>tn :tabnew <C-R>=expand("%:h")<cr>/
 map <leader>tt :tabnew <cr>
 
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+
+nnoremap Y y$
+
+if &listchars ==# 'eol:$'
+  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+  if &termencoding ==# 'utf-8' || &encoding ==# 'utf-8'
+    let &listchars = "tab:\u21e5 ,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u26ad"
+  endif
+endif

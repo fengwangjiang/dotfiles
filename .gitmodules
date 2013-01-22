@@ -4,3 +4,9 @@
 [submodule "home/.vim/bundle/vim-indent-guides"]
 	path = home/.vim/bundle/vim-indent-guides
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "home/.vim/bundle/vim-markdown"]
+	path = home/.vim/bundle/vim-markdown
+	url = git://github.com/tpope/vim-markdown.git
+[submodule "home/.vim/bundle/vim-sleuth"]
+	path = home/.vim/bundle/vim-sleuth
+	url = git://github.com/tpope/vim-sleuth.git
