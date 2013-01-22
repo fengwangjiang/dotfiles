@@ -1,5 +1,7 @@
 set nocompatible
 set encoding=utf-8
+autocmd!	
+"Remove ALL autocommands for the current group.
 
 call pathogen#infect()
 call pathogen#helptags()
@@ -89,8 +91,6 @@ set textwidth=79
 set formatoptions=qrco
 setlocal comments+=n:*,n:#
 
-autocmd!	
-"Remove ALL autocommands for the current group.
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal fo+=awt
 au BufRead,BufNewFile *.txt setlocal fo+=awt
 au BufRead,BufNewFile *.{hsc,ghci,lhs} setlocal filetype=haskell
