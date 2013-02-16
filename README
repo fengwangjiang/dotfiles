@@ -10,8 +10,12 @@ sudo apt-get install git curl
 # $HOME/.homeshick clone git@github.com:binarybana/dotfiles.git
 # $HOME/.homeshick symlink dotfiles
 #
-cat $HOME/.homesick/repos/dotfiles/pkg-list | sudo dpkg --set-selections
-sudo apt-get install
+# The below did not quite work, it appears there may be a bug in dpkg
+# and there is a workaround somewhere inside of here that worked for me:
+# http://rayslinux.blogspot.com/2012/10/ubuntu-1210-dpkg-warning-package-not-in.html
+sudo apt-get update
+sudo dpkg --set-selections <$HOME/.homesick/repos/dotfiles/pkg-list 
+sudo apt-get -u dselect-upgrade
 
 chsh --shell /bin/zsh
 
