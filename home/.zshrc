@@ -51,6 +51,14 @@ function longlist {
   ls -Shla --color=always "$1" | less -r
 }
 
+function psg {
+  ps ax | grep $1
+}
+
+function ag {
+  alias | grep $1
+}
+
 #From http://www.zsh.org/mla/users/1999/msg00632.html
 function ext_glob {
     setopt localoptions extendedglob
