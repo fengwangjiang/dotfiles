@@ -1,23 +1,29 @@
-git
-dstat
-curl
-vim-gnome
-mercurial
-nautilus-dropbox
-s3ql
-indicator-multiload
-indicator-weather
-compizconfig-settings-manager
-tmux
-build-essential
-gfortran
-openssh-server
-inkscape
-gimp
-zsh
-python-numpy
-python-scipy
-ipython
-cython
-rxvt-unicode-256color
-xclip
+git install
+dstat install
+curl install
+vim-gnome install
+mercurial install
+nautilus-dropbox install
+s3ql install
+indicator-multiload install
+indicator-weather install
+compizconfig-settings-manager install
+tmux install
+build-essential install
+gfortran install
+openssh-server install
+inkscape install
+gimp install
+zsh install
+#
+# Python Stuff
+#
+ipython install
+python-numpy install
+python-scipy install
+python-tables install
+cython install
+#
+#
+rxvt-unicode-256color install
+xclip install
