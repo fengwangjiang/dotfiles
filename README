@@ -1,14 +1,18 @@
 #!/bin/bash -ex
 # inspired from https://gist.github.com/2913223
 
-# On a brand new system, the first step is to update and then
+# Prerequisites to run this script:
+# SSH key that Github understands so we can checkout our dotfiles repo
+
+# The power of automation!
+
 # acquire git and curl
 sudo apt-get update && sudo apt-get upgrade
 sudo apt-get install git curl dselect
 
 curl -s https://raw.github.com/andsens/homeshick/master/install.sh | bash
 
-## Now you'll need to put your ssh private key on github so that we can...
+
 $HOME/.homeshick clone git@github.com:binarybana/dotfiles.git
 
 mv $HOME/.ssh $HOME/ssh
