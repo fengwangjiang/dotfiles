@@ -4,16 +4,21 @@
 # On a brand new system, the first step is to update and then
 # acquire git and curl
 sudo apt-get update && sudo apt-get upgrade
-sudo apt-get install git curl
+sudo apt-get install git curl dselect
 
-# curl -s https://raw.github.com/andsens/homeshick/master/install.sh | bash
-# $HOME/.homeshick clone git@github.com:binarybana/dotfiles.git
-# $HOME/.homeshick symlink dotfiles
-#
-# The below did not quite work, it appears there may be a bug in dpkg
-# and there is a workaround somewhere inside of here that worked for me:
+curl -s https://raw.github.com/andsens/homeshick/master/install.sh | bash
+
+## Now you'll need to put your ssh private key on github so that we can...
+$HOME/.homeshick clone git@github.com:binarybana/dotfiles.git
+
+mv $HOME/.ssh $HOME/ssh
+$HOME/.homeshick symlink dotfiles
+cp -a ssh/* $HOME/.homesick/repos/dotfiles/home/.ssh
+rm -rf $HOME/.ssh
+
+# It appears there may be a bug in dpkg and there is a workaround that we're using here:
 # http://rayslinux.blogspot.com/2012/10/ubuntu-1210-dpkg-warning-package-not-in.html
-sudo apt-get update
+sudo dselect update
 sudo dpkg --set-selections <$HOME/.homesick/repos/dotfiles/pkg-list 
 sudo apt-get -u dselect-upgrade
 
