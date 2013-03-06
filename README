@@ -18,7 +18,7 @@ $HOME/.homeshick clone git@github.com:binarybana/dotfiles.git
 mv $HOME/.ssh $HOME/ssh
 $HOME/.homeshick symlink dotfiles
 cp -a ssh/* $HOME/.homesick/repos/dotfiles/home/.ssh
-rm -rf $HOME/.ssh
+rm -rf $HOME/ssh
 
 # It appears there may be a bug in dpkg and there is a workaround that we're using here:
 # http://rayslinux.blogspot.com/2012/10/ubuntu-1210-dpkg-warning-package-not-in.html
