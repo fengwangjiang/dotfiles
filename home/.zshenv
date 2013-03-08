@@ -100,3 +100,4 @@ fi
 
 skip_global_compinit=1
 
+TIMEFMT="%U user   %MMB memory   %P cpu   %*E total - %J"
