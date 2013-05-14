@@ -10,10 +10,12 @@
 sudo apt-get update && sudo apt-get upgrade
 sudo apt-get install git curl dselect
 
-curl -s https://raw.github.com/andsens/homeshick/master/install.sh | bash
+# Install Homeshick
+git clone git://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
+printf '\nalias homeshick="$HOME/.homesick/repos/homeshick/home/.homeshick"' >> $HOME/.bashrc
+source $HOME/.bashrc
 
-
-$HOME/.homeshick clone git@github.com:binarybana/dotfiles.git
+homeshick clone git@github.com:binarybana/dotfiles.git
 
 mv $HOME/.ssh $HOME/ssh
 $HOME/.homeshick symlink dotfiles
@@ -27,27 +29,3 @@ sudo dpkg --set-selections <$HOME/.homesick/repos/dotfiles/pkg-list
 sudo apt-get -u dselect-upgrade
 
 chsh --shell /bin/zsh
-
-echo "Now I need to get the rest of the files from:"
-echo "bin .s3ql .unison .ssh GSP Dropbox"
-
-# S3QL
-sudo mkdir /mnt/gs
-sudo chown bana /mnt/gs
-sudo chgrp bana /mnt/gs
-# cp ~/.s3ql/authinfo2 from somewhere
-# cp ~/.unison/gsp.prf from somewhere
-# try to cp ~/bin/unison from somewhere
-
-#mount.s3ql gs://jknight-s3-test /mnt/gs
-
-# get as much of GSP locally as you can (avoid pulling the whole data set)
-# then:
-
-#rsync -avP --delete --size-only /mnt/gs ~/GSP/
-
-#unison -fastercheckUNSAFE /mnt/gs/ ~/GSP/
-#unison gsp
-
-#umount.s3ql /mnt/gs
-#sync
