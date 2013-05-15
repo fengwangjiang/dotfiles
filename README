@@ -16,9 +16,10 @@ printf '\nalias homeshick="$HOME/.homesick/repos/homeshick/home/.homeshick"' >> 
 source $HOME/.bashrc
 
 homeshick clone git@github.com:binarybana/dotfiles.git
+# Answer n when it asks to symlink
 
 mv $HOME/.ssh $HOME/ssh
-$HOME/.homeshick symlink dotfiles
+homeshick symlink dotfiles
 cp -a ssh/* $HOME/.homesick/repos/dotfiles/home/.ssh
 rm -rf $HOME/ssh
 
