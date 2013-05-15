@@ -30,3 +30,8 @@ sudo dpkg --set-selections <$HOME/.homesick/repos/dotfiles/pkg-list
 sudo apt-get -u dselect-upgrade
 
 chsh --shell /bin/zsh
+
+# AeroFS Install
+# Download AeroFS from https://aerofs.com/downloading?os=linux
+# Install openjdk-6-jre first
+# Rsync over AeroFS and Dropbox folders to avoid slow copying
