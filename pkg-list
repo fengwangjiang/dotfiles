@@ -4,9 +4,7 @@ curl install
 vim-gnome install
 mercurial install
 nautilus-dropbox install
-s3ql install
 indicator-multiload install
-indicator-weather install
 compizconfig-settings-manager install
 tmux install
 build-essential install
@@ -15,6 +13,7 @@ openssh-server install
 inkscape install
 gimp install
 zsh install
+m4 install
 #
 # Python Stuff
 #
