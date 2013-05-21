@@ -183,3 +183,7 @@ if &listchars ==# 'eol:$'
     let &listchars = "tab:\u21e5 ,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u26ad"
   endif
 endif
+
+" easier moving of code blocks
+vnoremap < <gv
+vnoremap > >gv

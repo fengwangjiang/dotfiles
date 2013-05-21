@@ -21,6 +21,9 @@ ipython install
 python-numpy install
 python-scipy install
 python-tables install
+python-networkx install
+python-pip install
+python-pandas install
 cython install
 #
 #

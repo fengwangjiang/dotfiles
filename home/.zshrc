@@ -70,3 +70,5 @@ alias extglob='noglob ext_glob '  # delay globbing until inside
 
 export PATH=$HOME/bin:$PATH
 export TIMEFMT="%U user   %MMB memory   %P cpu   %*E total - %J"
+
+samcd=~/AeroFS/GSP/research/samc
