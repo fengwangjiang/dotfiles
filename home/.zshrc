@@ -45,7 +45,7 @@ alias ezt='vim ~/$ZSH_CUSTOM/$ZSH_THEME.zsh-theme'
 
 alias echolast='tail -n 2 ~/.zsh_history | head -n 1| cut -d ";" -f 2- -'
 
-alias homesick="$HOME/.homeshick"
+alias homeshick="$HOME/.homesick/repos/homeshick/home/.homeshick"
 
 function longlist {
   ls -Shla --color=always "$1" | less -r
