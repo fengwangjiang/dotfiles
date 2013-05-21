@@ -22,5 +22,5 @@
 [core]
 	excludesfile = /home/bana/.gitignore_global
 	editor = vim
-;[push]
-	;default = simple
+[push]
+	default = simple
