@@ -45,6 +45,8 @@ alias ezt='vim ~/$ZSH_CUSTOM/$ZSH_THEME.zsh-theme'
 
 alias echolast='tail -n 2 ~/.zsh_history | head -n 1| cut -d ";" -f 2- -'
 
+alias parallel='parallel --gnu'
+
 alias homeshick="$HOME/.homesick/repos/homeshick/home/.homeshick"
 
 function longlist {
