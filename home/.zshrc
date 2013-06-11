@@ -74,3 +74,4 @@ export PATH=$HOME/bin:$PATH
 export TIMEFMT="%U user   %MMB memory   %P cpu   %*E total - %J"
 
 samcd=~/AeroFS/GSP/research/samc
+export PYTHONPATH=$HOME/AeroFS/GSP/code/jobmon
