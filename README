@@ -31,6 +31,9 @@ sudo apt-get -u dselect-upgrade
 
 chsh --shell /bin/zsh
 
+# Install rainbarf for tmux (press enter twice)
+sudo cpan -i App::rainbarf
+
 # AeroFS Install
 # Download AeroFS from https://aerofs.com/downloading?os=linux
 # Install openjdk-6-jre first
