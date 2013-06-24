@@ -37,7 +37,7 @@ set selectmode=key
 " Begin Jason Knight copying from stevelosh.com 'coming home to vim'
 set t_Co=256
 "colorscheme darkburn
-"colorscheme molokai
+colorscheme molokai
 
 " Vim indent guides
 "let g:indent_guides_start_level=2
@@ -102,6 +102,7 @@ au FileType rst set formatlistpat=^\\s*\\(\\d\\+\\\|[a-z]\\)[\\].)]\\s*
 
 " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+au FileType python set foldmethod=indent foldnestmax=2 foldignore=
 
 au Filetype tex setlocal fo+=awt
 au Filetype cabal setlocal fo+=awt
@@ -187,3 +188,15 @@ endif
 " easier moving of code blocks
 vnoremap < <gv
 vnoremap > >gv
+
+let g:LatexBox_Folding=1
+
+imap <buffer> [[ \begin{
+imap <buffer> ]] <Plug>LatexCloseCurEnv
+vmap <buffer> <F7> <Plug>LatexWrapSelection
+"nmap <buffer> <F5> <Plug>LatexChangeEnv
+"vmap <buffer> <S-F7> <Plug>LatexEnvWrapSelection
+imap <buffer> (( \eqref{
+
+nnoremap <enter> za
+vnoremap <enter> zf
