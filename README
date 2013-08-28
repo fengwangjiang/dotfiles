@@ -34,7 +34,7 @@ chsh --shell /bin/zsh
 # Install rainbarf for tmux (press enter twice)
 sudo cpan -i App::rainbarf
 
-# AeroFS Install
-# Download AeroFS from https://aerofs.com/downloading?os=linux
-# Install openjdk-6-jre first
-# Rsync over AeroFS and Dropbox folders to avoid slow copying
+# Get a local copy of GSP/ and Dropbox/ if available
+# Install btsync
+
+#echo "openout_any = a" >> /etc/texmf/web2c/texmf.cnf

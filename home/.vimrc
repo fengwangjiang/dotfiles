@@ -191,12 +191,12 @@ vnoremap > >gv
 
 let g:LatexBox_Folding=1
 
-imap <buffer> [[ \begin{
-imap <buffer> ]] <Plug>LatexCloseCurEnv
-vmap <buffer> <F7> <Plug>LatexWrapSelection
+"imap <buffer> [[ \begin{
+"imap <buffer> ]] <Plug>LatexCloseCurEnv
+"vmap <buffer> <F7> <Plug>LatexWrapSelection
 "nmap <buffer> <F5> <Plug>LatexChangeEnv
 "vmap <buffer> <S-F7> <Plug>LatexEnvWrapSelection
-imap <buffer> (( \eqref{
+"imap <buffer> (( \eqref{
 
 nnoremap <enter> za
 vnoremap <enter> zf
