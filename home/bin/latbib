@@ -10,7 +10,11 @@ pdflatex ${opts} -draftmode -interaction nonstopmode -output-directory /tmp $inp
 bibtex /tmp/${strinput}.aux > /dev/null 2>&1
 cp /tmp/${strinput}.bbl .
 pdflatex ${opts} -draftmode -interaction nonstopmode -output-directory /tmp $input > /dev/null 2>&1
-pdflatex ${opts} -interaction nonstopmode -output-directory /tmp $input | grep -i error -C 5
+if [ "$2" == "errors" ]; then
+		pdflatex ${opts} -interaction nonstopmode -output-directory /tmp $input
+else
+		pdflatex ${opts} -interaction nonstopmode -output-directory /tmp $input | grep -i error -C 5
+fi
 rm ${strinput}.bbl
 
 if [ -z "$2" ]; then

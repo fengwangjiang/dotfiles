@@ -10,6 +10,11 @@
 sudo apt-get update && sudo apt-get upgrade
 sudo apt-get install git curl dselect
 
+# or
+
+sudo yum update
+sudo yum install git curl
+
 # Install Homeshick
 git clone git://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
 printf '\nsource $HOME/.homesick/repos/homeshick/homeshick.sh\n' >> $HOME/.bashrc
@@ -26,8 +31,12 @@ rm -rf $HOME/ssh
 # It appears there may be a bug in dpkg and there is a workaround that we're using here:
 # http://rayslinux.blogspot.com/2012/10/ubuntu-1210-dpkg-warning-package-not-in.html
 sudo dselect update
-sudo dpkg --set-selections <$HOME/.homesick/repos/dotfiles/pkg-list 
+sudo dpkg --set-selections <$HOME/.homesick/repos/dotfiles/pkg-list.apt
 sudo apt-get -u dselect-upgrade
+
+#or 
+
+sudo yum install $(cat $HOME/.homesick/repos/dotfiles/pkg-list.yum)
 
 chsh --shell /bin/zsh
 
@@ -38,3 +47,7 @@ sudo cpan -i App::rainbarf
 # Install btsync
 
 #echo "openout_any = a" >> /etc/texmf/web2c/texmf.cnf
+
+# In fedora install Infinilaty text rendering patches:
+rpm -Uvh http://www.infinality.net/fedora/linux/infinality-repo-1.0-1.noarch.rpm
+yum install freetype-infinality fontconfig-infinality
