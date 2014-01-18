@@ -65,6 +65,8 @@ function ag {
   alias | grep $1
 }
 
+alias lgfr="git fetch repo.git;git reset FETCH_HEAD"
+
 #From http://www.zsh.org/mla/users/1999/msg00632.html
 function ext_glob {
     setopt localoptions extendedglob

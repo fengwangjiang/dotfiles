@@ -24,3 +24,11 @@ xclip
 gcc-c++
 gnome-tweak-tool
 ncurses-devel
+texlive-scheme-medium
+texlive-collection-science
+texlive-collection-mathextra
+texlive-collection-pstricks
+python-ipython
+python-ipython-gui
+python-ipython-notebook
+
