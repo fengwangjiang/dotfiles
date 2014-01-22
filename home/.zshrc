@@ -80,4 +80,4 @@ export PATH=$HOME/bin:$PATH
 export TIMEFMT="%U user   %MMB memory   %P cpu   %*E total - %J"
 
 samcd=~/GSP/research/samc
-export PYTHONPATH=$HOME/AeroFS/GSP/code/jobmon
+export PYTHONPATH=$HOME/GSP/code/jobmon:$HOME/GSP/research/samc/samcnet

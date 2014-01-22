@@ -200,3 +200,5 @@ let g:LatexBox_Folding=1
 
 nnoremap <enter> za
 vnoremap <enter> zf
+
+noremap <F12> <Esc>:syntax sync fromstart<CR>
