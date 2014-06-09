@@ -47,6 +47,8 @@ alias ez='vim ~/.zshrc'
 alias sz='. ~/.zshrc'
 alias ezt='vim ~/$ZSH_CUSTOM/$ZSH_THEME.zsh-theme'
 
+alias tmux='tmux -2'
+
 alias echolast='tail -n 2 ~/.zsh_history | head -n 1| cut -d ";" -f 2- -'
 
 alias parallel='parallel --gnu'
