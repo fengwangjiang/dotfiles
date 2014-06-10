@@ -122,16 +122,16 @@ endfunc
 " 79 characters
 
 " Shortcut to rapidly toggle `set list`
-" nmap <leader>i :set list!<CR>
-" set listchars=eol:¬,tab:▸\ 
+nmap <leader>i :set list!<CR>
+set listchars=eol:¬,tab:▸\ 
 
 "Invisible character colors
-" highlight NonText guifg=#4a4a59
-" highlight SpecialKey guifg=#4a4a59
-" highlight LineNr guifg=grey
-" highlight NonText ctermfg=grey
-" highlight SpecialKey ctermfg=grey
-" highlight LineNr ctermfg=grey
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
+highlight LineNr guifg=grey
+highlight NonText ctermfg=grey
+highlight SpecialKey ctermfg=grey
+highlight LineNr ctermfg=grey
 
 :map <F3> :w !detex \| wc -w<CR>
 
