@@ -37,9 +37,9 @@ alias bc='bc -l'
 alias as='apt-cache search'
 alias au='sudo apt-get update && sudo apt-get upgrade'
 alias ai='sudo apt-get install'
-alias yi='sudo yum install'
-alias yu='sudo yum update'
-alias ys='yum search'
+alias yi='sudo dnf install'
+alias yu='sudo dnf update'
+alias ys='dnf search'
 
 alias vim='gvim -v'
 alias essh='vim ~/.ssh/config'
@@ -83,3 +83,6 @@ export TIMEFMT="%U user   %MMB memory   %P cpu   %*E total - %J"
 
 samcd=~/GSP/research/samc
 export PYTHONPATH=$HOME/GSP/code/jobmon:$HOME/GSP/research/samc/samcnet
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
