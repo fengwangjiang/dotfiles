@@ -53,7 +53,7 @@ alias echolast='tail -n 2 ~/.zsh_history | head -n 1| cut -d ";" -f 2- -'
 
 alias parallel='parallel --gnu'
 
-alias homeshick="$HOME/.homesick/repos/homeshick/home/.homeshick"
+source $HOME/.homesick/repos/homeshick/homeshick.sh
 
 function longlist {
   ls -Shla --color=always "$1" | less -r
