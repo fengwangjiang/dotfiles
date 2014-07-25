@@ -36,6 +36,10 @@ sudo dnf install $(cat $HOME/.homesick/repos/dotfiles/pkg-list.yum)
 
 chsh --shell /bin/zsh
 
+su -c 'yum localinstall -y https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm'
+
+su -c 'yum localinstall --nogpgcheck -y http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm'
+
 # In fedora install Infinilaty text rendering patches:
-rpm -Uvh http://www.infinality.net/fedora/linux/infinality-repo-1.0-1.noarch.rpm
-yum install freetype-infinality fontconfig-infinality
+su -c 'yum localinstall -y http://www.infinality.net/fedora/linux/infinality-repo-1.0-1.noarch.rpm'
+sudo dnf install -y freetype-infinality fontconfig-infinality gstreamer-plugins-bad-nonfree
