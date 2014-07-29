@@ -1,5 +1,4 @@
 Host *
-  ControlPersist 5m
   ControlMaster auto
   ControlPath /tmp/ssh-%r@%h:%p
 
@@ -24,6 +23,13 @@ Host compute*
 Host camdi16
   User bana
   HostName 165.91.242.157
+  ProxyCommand ssh gsp nc %h %p
+
+Host camdiredis
+  User bana
+  HostName 165.91.242.157
+  ProxyCommand ssh gsp nc %h %p
+  LocalForward 9090 localhost:6379
 
 #### Home ####
 Host router
@@ -34,11 +40,6 @@ Host router
 Host desktop
   ProxyCommand ssh router nc %h %p
   HostName bana-desktop
-  User bana
-
-Host laptop
-  ProxyCommand ssh router nc %h %p
-  HostName bana-laptop
   User bana
 
 #### Chapkin/Ivan ####
@@ -56,18 +57,19 @@ Host nfsc-ws38 #Kleberg upstairs
   #User bana
 
 Host sequencer
-  HostName 128.194.242.135 
+  HostName sequencer.tamu.edu
   User jason
 
 Host toxic
   User jason
   HostName localhost
   Port 9092
-  ProxyCommand ssh -q gsp nc -q0 %h %p
+  ProxyCommand ssh -q gsp nc %h %p
 
-Host toxic2
+Host oracle
   User jason
-  HostName nfsc-nas.tamu.edu
+  HostName nfsc-oracle.tamu.edu
+  ProxyCommand ssh -q sequencer nc %h %p
 
 Host nas
   User root
@@ -82,10 +84,11 @@ Host stage
   User jason
   HostName localhost
   Port 9093
-  ProxyCommand ssh -q gsp nc -q0 %h %p
+  ProxyCommand ssh -q gsp nc %h %p
 Host stage2
   User jason
   LocalForward 9090 localhost:8080
   HostName localhost
   Port 9094
-  ProxyCommand ssh -q gsp nc -q0 %h %p
+  ProxyCommand ssh -q gsp nc %h %p
+
