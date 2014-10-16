@@ -86,3 +86,9 @@ export PYTHONPATH=$HOME/GSP/code/jobmon:$HOME/GSP/research/samc/samcnet
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+
+function bwpdf {
+  /usr/bin/gs -sOutputFile=$2 -sDEVICE=pdfwrite \
+    -sColorConversionStrategy=Gray -dProcessColorModel=/DeviceGray \
+    -dCompatibilityLevel=1.4 -dNOPAUSE -dBATCH $1
+}

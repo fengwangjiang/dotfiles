@@ -1,8 +1,10 @@
 input=$1
-strinput=${input%.tex}
 
-cp /tmp/${strinput}.bbl .
-pdflatex -interaction nonstopmode -output-directory /tmp --shell-escape $input | grep -i error
+if [ "$2" == "errors" ]; then
+		pdflatex ${opts} -interaction nonstopmode -output-directory /tmp --shell-escape $input
+else
+		pdflatex ${opts} -interaction nonstopmode -output-directory /tmp --shell-escape $input | grep -i error -C 5
+fi
 
 if [ -z "$2" ]; then
     xdg-open /tmp/${input%.tex}.pdf > /dev/null 2>&1
